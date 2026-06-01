@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<TabPane fx:id="mainTabPane"
+         minHeight="600.0" minWidth="700.0"
+         prefHeight="818.0" prefWidth="1055.0"
+         tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="gestionfournisseurs.fournisseursController">
+  <tabs>
+
+    <!-- ══════════════════════════════
+         TAB 1 : ACCUEIL
+         ══════════════════════════════ -->
+    <Tab text="          Accueil        ">
+      <content>
+       
+        <AnchorPane minHeight="0.0" minWidth="0.0"
+                    style="-fx-background-color: #E6F5FF;">
+          <children>
+
+           
+            <StackPane AnchorPane.topAnchor="10.0"
+                       AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0"
+                       prefHeight="60.0">
+              <Text fill="#0598ff" strokeType="OUTSIDE" strokeWidth="0.0"
+                    text="Bienvenue  &#128522;">
+                <font><Font size="37.0" /></font>
+              </Text>
+            </StackPane>
+
+            
+            <StackPane AnchorPane.topAnchor="80.0"
+                       AnchorPane.bottomAnchor="20.0"
+                       AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0">
+
+              <BorderPane maxWidth="700.0" maxHeight="500.0"
+                          minWidth="600.0" minHeight="400.0">
+
+                <!-- Panneau gauche bleu - taille fixe OK -->
+                <left>
+                  <AnchorPane prefWidth="300.0"
+                              style="-fx-background-color: #0598ff;"
+                              BorderPane.alignment="CENTER">
+                    <children>
+                      <Label layoutX="90.0" layoutY="120.0"
+                             text="&#127970;"
+                             style="-fx-font-size: 90px;" />
+                      <Text fill="WHITE" layoutX="30.0" layoutY="310.0"
+                            strokeType="OUTSIDE" strokeWidth="0.0"
+                            text="Gestion Fournisseurs">
+                        <font><Font name="Candara" size="24.0" /></font>
+                      </Text>
+                    </children>
+                  </AnchorPane>
+                </left>
+
+                
+                <center>
+                  <StackPane style="-fx-background-color: white;"
+                             BorderPane.alignment="CENTER">
+                    <AnchorPane maxWidth="350.0" minWidth="280.0"
+                                StackPane.alignment="CENTER">
+                      <children>
+
+                        <Label layoutX="130.0" layoutY="60.0"
+                               text="&#128101;"
+                               style="-fx-font-size: 40px;" />
+
+                        <Text fill="#0598ff" layoutX="105.0" layoutY="155.0"
+                              strokeType="OUTSIDE" strokeWidth="0.0" text="Connexion">
+                          <font><Font size="24.0" /></font>
+                        </Text>
+
+                        <Label layoutX="50.0" layoutY="192.0"
+                               text="&#128100;"
+                               style="-fx-font-size: 20px;" />
+                        <TextField fx:id="usernameField" layoutX="85.0" layoutY="190.0"
+                                   prefWidth="220.0"
+                                   promptText="User Name"
+                                   style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px; -fx-font-size: 13px;" />
+
+                        <Label layoutX="52.0" layoutY="252.0"
+                               text="&#128274;"
+                               style="-fx-font-size: 18px;" />
+                        <PasswordField fx:id="passwordField" layoutX="85.0" layoutY="250.0"
+                                       prefWidth="220.0"
+                                       promptText="Password"
+                                       style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px; -fx-font-size: 13px;" />
+
+                        <Button layoutX="95.0" layoutY="310.0"
+                                mnemonicParsing="false"
+                                prefHeight="36.0" prefWidth="130.0"
+                                style="-fx-background-radius: 10; -fx-background-color: #0598ff; -fx-font-size: 14px;"
+                                text="Connexion" textFill="WHITE"
+                                onAction="#handleLogin" />
+
+                        <Label fx:id="loginStatus" layoutX="70.0" layoutY="358.0"
+                               prefWidth="220.0" text=""
+                               style="-fx-font-size: 12px;" />
+
+                        <Hyperlink layoutX="85.0" layoutY="375.0"
+                                   text="Mot de Passe oublie ?" />
+
+                      </children>
+                    </AnchorPane>
+                  </StackPane>
+                </center>
+
+              </BorderPane>
+            </StackPane>
+
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+
+    <!-- ══════════════════════════════
+         TAB 2 : FORMULAIRE
+         ══════════════════════════════ -->
+    <Tab fx:id="tabFormulaire" text="   Formulaire   ">
+      <content>
+       
+        <AnchorPane style="-fx-background-color: #F0F8FF;">
+          <children>
+
+            <Button fx:id="btnDeconnexion"
+                    AnchorPane.topAnchor="15.0"
+                    AnchorPane.rightAnchor="40.0"
+                    text="&#128275; Deconnexion"
+                    onAction="#handleDeconnexion"
+                    prefHeight="34.0" prefWidth="140.0"
+                    style="-fx-background-color: #dc3545; -fx-text-fill: white;
+                           -fx-background-radius: 8; -fx-font-size: 12; -fx-cursor: hand;" />
+
+            <Text fill="#0598ff" layoutX="40.0" layoutY="55.0"
+                  strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="&#128203;  Ajouter / Modifier un Fournisseur">
+              <font><Font name="Candara Bold" size="22.0" /></font>
+            </Text>
+
+            <!-- Formulaire principal : ancré gauche/droite pour s'étirer -->
+            <AnchorPane layoutX="40.0" layoutY="75.0" prefHeight="420.0"
+                        AnchorPane.leftAnchor="40.0"
+                        AnchorPane.rightAnchor="320.0"
+                        style="-fx-background-color: white; -fx-background-radius: 15;
+                               -fx-border-radius: 15; -fx-border-color: #d0e8ff; -fx-border-width: 1;">
+              <children>
+
+                <Label layoutX="40.0" layoutY="30.0" text="Code Fournisseur"
+                       style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+                <TextField fx:id="codetext" layoutX="40.0" layoutY="50.0"
+                           prefWidth="260.0" prefHeight="36.0" promptText="ex: F013"
+                           style="-fx-background-color: #f7fbff; -fx-background-radius: 8;
+                                  -fx-border-color: #b8d8f8; -fx-border-radius: 8;
+                                  -fx-border-width: 1; -fx-padding: 6 12 6 12; -fx-font-size: 13;" />
+
+                <Label layoutX="340.0" layoutY="30.0" text="Nom du Fournisseur"
+                       style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+                <TextField fx:id="nomtext" layoutX="340.0" layoutY="50.0"
+                           prefWidth="300.0" prefHeight="36.0" promptText="Raison sociale"
+                           style="-fx-background-color: #f7fbff; -fx-background-radius: 8;
+                                  -fx-border-color: #b8d8f8; -fx-border-radius: 8;
+                                  -fx-border-width: 1; -fx-padding: 6 12 6 12; -fx-font-size: 13;" />
+
+                <Label layoutX="40.0" layoutY="110.0" text="Telephone"
+                       style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+                <TextField fx:id="telephonetext" layoutX="40.0" layoutY="130.0"
+                           prefWidth="260.0" prefHeight="36.0" promptText="0600000000"
+                           style="-fx-background-color: #f7fbff; -fx-background-radius: 8;
+                                  -fx-border-color: #b8d8f8; -fx-border-radius: 8;
+                                  -fx-border-width: 1; -fx-padding: 6 12 6 12; -fx-font-size: 13;" />
+
+                <Label layoutX="340.0" layoutY="110.0" text="Email"
+                       style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+                <TextField fx:id="emailtext" layoutX="340.0" layoutY="130.0"
+                           prefWidth="300.0" prefHeight="36.0" promptText="contact@exemple.ma"
+                           style="-fx-background-color: #f7fbff; -fx-background-radius: 8;
+                                  -fx-border-color: #b8d8f8; -fx-border-radius: 8;
+                                  -fx-border-width: 1; -fx-padding: 6 12 6 12; -fx-font-size: 13;" />
+
+                <Label layoutX="40.0" layoutY="190.0" text="Ville"
+                       style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+                <TextField fx:id="villetext" layoutX="40.0" layoutY="210.0"
+                           prefWidth="260.0" prefHeight="36.0" promptText="ex: Casablanca"
+                           style="-fx-background-color: #f7fbff; -fx-background-radius: 8;
+                                  -fx-border-color: #b8d8f8; -fx-border-radius: 8;
+                                  -fx-border-width: 1; -fx-padding: 6 12 6 12; -fx-font-size: 13;" />
+
+                <Label layoutX="340.0" layoutY="190.0" text="Categorie ID"
+                       style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+                <TextField fx:id="categorietext" layoutX="340.0" layoutY="210.0"
+                           prefWidth="300.0" prefHeight="36.0" promptText="1"
+                           style="-fx-background-color: #f7fbff; -fx-background-radius: 8;
+                                  -fx-border-color: #b8d8f8; -fx-border-radius: 8;
+                                  -fx-border-width: 1; -fx-padding: 6 12 6 12; -fx-font-size: 13;" />
+
+                <Label fx:id="statusLabel" layoutX="40.0" layoutY="270.0"
+                       prefWidth="600.0" text=""
+                       style="-fx-font-size: 12; -fx-text-fill: #0598ff;" />
+
+                <AnchorPane layoutX="40.0" layoutY="295.0" prefHeight="1.0" prefWidth="600.0"
+                            style="-fx-background-color: #d0e8ff;" />
+
+                <Button fx:id="saved" layoutX="30.0" layoutY="315.0"
+                        mnemonicParsing="false" onAction="#handleSaved"
+                        prefHeight="38.0" prefWidth="140.0" text="&#10133;  Ajouter"
+                        style="-fx-background-color: #0598ff; -fx-text-fill: white;
+                               -fx-background-radius: 10; -fx-font-size: 13; -fx-cursor: hand;" />
+
+                <Button fx:id="btnModifier" layoutX="185.0" layoutY="315.0"
+                        mnemonicParsing="false" onAction="#handleModifier"
+                        prefHeight="38.0" prefWidth="140.0" text="&#9999;  Modifier"
+                        style="-fx-background-color: #28a745; -fx-text-fill: white;
+                               -fx-background-radius: 10; -fx-font-size: 13; -fx-cursor: hand;" />
+
+                <Button fx:id="btnSupprimer" layoutX="340.0" layoutY="315.0"
+                        mnemonicParsing="false" onAction="#handleSupprimer"
+                        prefHeight="38.0" prefWidth="140.0" text="&#128465;  Supprimer"
+                        style="-fx-background-color: #dc3545; -fx-text-fill: white;
+                               -fx-background-radius: 10; -fx-font-size: 13; -fx-cursor: hand;" />
+
+                <Button fx:id="btnAnnuler" layoutX="495.0" layoutY="315.0"
+                        mnemonicParsing="false" onAction="#handleAnnuler"
+                        prefHeight="38.0" prefWidth="140.0" text="&#10006;  Annuler"
+                        style="-fx-background-color: #6c757d; -fx-text-fill: white;
+                               -fx-background-radius: 10; -fx-font-size: 13; -fx-cursor: hand;" />
+
+              </children>
+            </AnchorPane>
+
+            <!-- Carte guide : ancrée à droite -->
+            <AnchorPane prefHeight="250.0" prefWidth="265.0"
+                        AnchorPane.topAnchor="75.0"
+                        AnchorPane.rightAnchor="40.0"
+                        style="-fx-background-color: white; -fx-background-radius: 15;
+                               -fx-border-radius: 15; -fx-border-color: #d0e8ff; -fx-border-width: 1;">
+              <children>
+                <Text fill="#0598ff" layoutX="20.0" layoutY="35.0"
+                      text="&#128161;  Guide rapide">
+                  <font><Font name="Candara Bold" size="14.0" /></font>
+                </Text>
+                <Text fill="#555555" layoutX="20.0" layoutY="65.0" wrappingWidth="225.0"
+                      text="1. Remplissez tous les champs.&#10;2. Cliquez Ajouter pour creer.&#10;3. Selectionnez une ligne dans la liste pour modifier ou supprimer.&#10;4. Annuler efface le formulaire.">
+                  <font><Font name="Candara" size="12.0" /></font>
+                </Text>
+              </children>
+            </AnchorPane>
+
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+
+    <!-- ══════════════════════════════
+         TAB 3 : LISTE FOURNISSEURS
+         ══════════════════════════════ -->
+    <Tab fx:id="tabListe" text="Liste Fournisseurs">
+      <content>
+        <AnchorPane style="-fx-background-color: #F0F8FF;">
+          <children>
+
+            <TextField fx:id="searchtext" layoutX="40.0" layoutY="18.0"
+                       prefWidth="300.0" prefHeight="34.0"
+                       promptText="&#128269;  Rechercher par nom, code ou ville..."
+                       onKeyReleased="#handleSearch"
+                       style="-fx-background-color: white; -fx-background-radius: 8;
+                              -fx-border-color: #b8d8f8; -fx-border-radius: 8;
+                              -fx-border-width: 1; -fx-padding: 6 12 6 12; -fx-font-size: 13;" />
+
+            <Button layoutX="355.0" layoutY="18.0" prefHeight="34.0" prefWidth="130.0"
+                    mnemonicParsing="false" onAction="#handleActualiser"
+                    text="&#128260;  Actualiser"
+                    style="-fx-background-color: #0598ff; -fx-text-fill: white;
+                           -fx-background-radius: 8; -fx-font-size: 13; -fx-cursor: hand;" />
+
+           
+            <TableView fx:id="tableView"
+                       AnchorPane.topAnchor="65.0"
+                       AnchorPane.bottomAnchor="10.0"
+                       AnchorPane.leftAnchor="40.0"
+                       AnchorPane.rightAnchor="40.0">
+              <columns>
+                <TableColumn fx:id="colId"          prefWidth="60.0"  text="ID" />
+                <TableColumn fx:id="colCode"         prefWidth="90.0"  text="Code" />
+                <TableColumn fx:id="colNom"          prefWidth="200.0" text="Nom" />
+                <TableColumn fx:id="colTelephone"    prefWidth="120.0" text="Telephone" />
+                <TableColumn fx:id="colEmail"        prefWidth="200.0" text="Email" />
+                <TableColumn fx:id="colVille"        prefWidth="120.0" text="Ville" />
+                <TableColumn fx:id="colActif"        prefWidth="70.0"  text="Actif" />
+                <TableColumn fx:id="colCategorieId"  prefWidth="100.0" text="Categorie" />
+              </columns>
+            </TableView>
+
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+
+    <!-- ══════════════════════════════
+         TAB 4 : DASHBOARD
+         ══════════════════════════════ -->
+    <Tab fx:id="tabDashboard" text="     Dashboard     ">
+      <content>
+        <AnchorPane style="-fx-background-color: #F0F8FF;">
+          <children>
+
+            <Text fill="#0598ff" layoutX="40.0" layoutY="50.0"
+                  strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="&#128202;  Tableau de bord">
+              <font><Font name="Candara Bold" size="22.0" /></font>
+            </Text>
+
+            <AnchorPane layoutX="40.0" layoutY="70.0" prefHeight="110.0" prefWidth="220.0"
+                        style="-fx-background-color: white; -fx-background-radius: 12;
+                               -fx-border-color: #d0e8ff; -fx-border-width: 1; -fx-border-radius: 12;">
+              <children>
+                <Text fill="#888888" layoutX="20.0" layoutY="32.0"
+                      text="&#128101;  Total Fournisseurs">
+                  <font><Font size="12.0" /></font>
+                </Text>
+                <Label fx:id="lblTotalFournisseurs" layoutX="20.0" layoutY="78.0" text="--"
+                       style="-fx-font-size: 30; -fx-text-fill: #0598ff; -fx-font-weight: bold;" />
+              </children>
+            </AnchorPane>
+
+            <AnchorPane layoutX="280.0" layoutY="70.0" prefHeight="110.0" prefWidth="220.0"
+                        style="-fx-background-color: white; -fx-background-radius: 12;
+                               -fx-border-color: #d0e8ff; -fx-border-width: 1; -fx-border-radius: 12;">
+              <children>
+                <Text fill="#888888" layoutX="20.0" layoutY="32.0"
+                      text="&#127759;  Villes distinctes">
+                  <font><Font size="12.0" /></font>
+                </Text>
+                <Label fx:id="lblTotalVilles" layoutX="20.0" layoutY="78.0" text="--"
+                       style="-fx-font-size: 30; -fx-text-fill: #0598ff; -fx-font-weight: bold;" />
+              </children>
+            </AnchorPane>
+
+           
+            <PieChart fx:id="categoriePieChart"
+                      AnchorPane.topAnchor="205.0"
+                      AnchorPane.bottomAnchor="20.0"
+                      AnchorPane.leftAnchor="40.0"
+                      AnchorPane.rightAnchor="40.0"
+                      title="Repartition par Ville" />
+
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+
+  </tabs>
+</TabPane>
